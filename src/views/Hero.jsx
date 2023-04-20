@@ -5,14 +5,22 @@ import { motion } from 'framer-motion'
 import { FaTelegramPlane } from 'react-icons/fa'
 import { SiTwitter } from 'react-icons/si'
 import { MdEmail } from 'react-icons/md'
+import { BsClipboard, BsClipboard2CheckFill } from 'react-icons/bs'
 
 
 const Hero = () => {
 
     const [contractAddress, setContract] = useState('0x00000000000000000000000000000')
+    const [debounce, setDebounce] = useState(false)
 
     const handleCopy = () => {
-        navigator.clipboard.writeText(contractAddress)
+        if (!debounce) {
+            setDebounce(true)
+            navigator.clipboard.writeText(contractAddress)
+            setTimeout(() => {
+                setDebounce(false)
+            }, 1500);
+        }
     }
 
     return (
@@ -24,16 +32,9 @@ const Hero = () => {
             <div className="absolute top-0 left-0 z-10 w-full h-full text-white font-albertus flex justify-center items-center pointer-events-none">
 
                 <nav className="absolute w-full left-0 top-0 z-20 flex justify-between">
-                    <img src="/logo.webp" alt="Logo" className="w-20 m-5" />
+                    <img src="/logo.webp" alt="Logo" className="w-20 m-5 2xl:w-32" />
 
-
-                    <button className="flex 2xl:w-[18rem] 2xl:h-[3.5rem] md:w-[14rem] w-[12rem] relative h-[2.7rem] group m-5 pointer-events-auto">
-                        <img src="/side.webp" alt="side" className="h-full" />
-                        <div className="w-full h-full border-t-[1px] boder-white border-b-[1px] flex items-center justify-center font-copper group-hover:bg-white/30 group-hover:font-bold transition-bg ease-in-out duration-100">
-                            <h2 className="text-sm 2xl:text-xl">BUY TOKEN</h2>
-                        </div>
-                        <img src="/side.webp" alt="side" className="scale-x-[-1] h-full" />
-                    </button>
+                    <h2 className='font-copper m-4 2xl:text-2xl'>jimmyfisher@gmail.com</h2>
 
                 </nav>
 
@@ -55,14 +56,18 @@ const Hero = () => {
 
 
                     <motion.div initial={{ y: 150, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 3.5, delay: 1, ease: [0.16, 0.77, 0.47, .97] }} className="pointer-events-auto">
-                        <button className="flex 2xl:w-[18rem] 2xl:h-[3.5rem] md:w-[14rem] w-[12rem] relative h-[2.7rem] mx-auto mt-8 group " onClick={handleCopy}>
+                        <button className="flex 2xl:w-[18rem] 2xl:h-[3.5rem] md:w-[14rem] w-[12rem] relative h-[2.7rem] mx-auto mt-8 group ">
                             <img src="/side.webp" alt="side" className="h-full" />
                             <div className="w-full h-full border-t-[1px] boder-white border-b-[1px] flex items-center justify-center font-copper group-hover:bg-white/30 group-hover:font-bold transition-bg ease-in-out duration-100 2xl:text-xl">
-                                <h2>Copy address</h2>
+                                <h2>BUY TOKEN</h2>
                             </div>
                             <img src="/side.webp" alt="side" className="scale-x-[-1] h-full" />
                         </button>
-                        <p className="font-copper text-sm mt-2 2xl:text-xl">{contractAddress}</p>
+                        <div className="flex items-center mt-2 justify-center gap-x-2 pointer-events-auto w-fit mx-auto cursor-pointer" onClick={handleCopy}>
+                            {debounce ? <BsClipboard2CheckFill /> : <BsClipboard className='' />}
+                        
+                            <p className="font-copper text-sm  2xl:text-xl">{contractAddress}</p>
+                        </div>
                     </motion.div>
 
 
