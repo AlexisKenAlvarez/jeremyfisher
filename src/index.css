@@ -8,6 +8,11 @@
     src: url('../fonts/AlbertusNova.ttf');
   }
 
+  @font-face {
+    font-family: 'Copper';
+    src: url('../fonts/CopperplateGothicLight.ttf');
+  }
+
   .glow {
     text-shadow: 0px 0px 25px #FFFFFF;
   }

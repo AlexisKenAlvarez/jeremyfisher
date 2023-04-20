@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        albertus: 'Albertus'
+        albertus: 'Albertus',
+        copper: 'Copper'
       }
     },
   },
