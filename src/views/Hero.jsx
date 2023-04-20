@@ -9,7 +9,7 @@ import { MdEmail } from 'react-icons/md'
 
 const Hero = () => {
 
-    const [contractAddress, setContract] = useState('0x00000000000000')
+    const [contractAddress, setContract] = useState('0x00000000000000000000000000000')
 
     const handleCopy = () => {
         navigator.clipboard.writeText(contractAddress)
@@ -27,14 +27,13 @@ const Hero = () => {
                     <img src="/logo.webp" alt="Logo" className="w-20 m-5" />
 
 
-                    <button className="flex md:w-[14rem] w-[12rem] relative h-[2.7rem] group pointer-events-auto m-6" onClick={handleCopy}>
+                    <button className="flex md:w-[14rem] w-[12rem] relative h-[2.7rem] group m-5 pointer-events-auto">
                         <img src="/side.webp" alt="side" className="h-full" />
                         <div className="w-full h-full border-t-[1px] boder-white border-b-[1px] flex items-center justify-center font-copper group-hover:bg-white/30 group-hover:font-bold transition-bg ease-in-out duration-100">
-                            <h2 className="text-sm">COPY ADDRESS</h2>
+                            <h2 className="text-sm">BUY TOKEN</h2>
                         </div>
                         <img src="/side.webp" alt="side" className="scale-x-[-1] h-full" />
                     </button>
-
 
                 </nav>
 
@@ -55,13 +54,17 @@ const Hero = () => {
 
 
 
-                    <motion.button initial={{ y: 150, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 3.5, delay: 1, ease: [0.16, 0.77, 0.47, .97] }} className="flex md:w-[14rem] w-[12rem] relative h-[2.7rem] mx-auto mt-10 pointer-events-auto group">
-                        <img src="/side.webp" alt="side" className="h-full" />
-                        <div className="w-full h-full border-t-[1px] boder-white border-b-[1px] flex items-center justify-center font-copper group-hover:bg-white/30 group-hover:font-bold transition-bg ease-in-out duration-100">
-                            <h2>Buy token</h2>
-                        </div>
-                        <img src="/side.webp" alt="side" className="scale-x-[-1] h-full" />
-                    </motion.button>
+                    <motion.div initial={{ y: 150, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 3.5, delay: 1, ease: [0.16, 0.77, 0.47, .97] }} className="pointer-events-auto">
+                        <button className="flex md:w-[14rem] w-[12rem] relative h-[2.7rem] mx-auto mt-8 group" onClick={handleCopy}>
+                            <img src="/side.webp" alt="side" className="h-full" />
+                            <div className="w-full h-full border-t-[1px] boder-white border-b-[1px] flex items-center justify-center font-copper group-hover:bg-white/30 group-hover:font-bold transition-bg ease-in-out duration-100">
+                                <h2>Copy address</h2>
+                            </div>
+                            <img src="/side.webp" alt="side" className="scale-x-[-1] h-full" />
+                        </button>
+                        <p className="font-copper text-sm mt-2">{contractAddress}</p>
+                    </motion.div>
+
 
                 </div>
 
@@ -72,13 +75,13 @@ const Hero = () => {
                         </a>
                     </button>
 
-                    <button  className='hover:scale-110'>
+                    <button className='hover:scale-110'>
                         <a href="" className="" rel="noopener noreferrer">
                             <SiTwitter />
                         </a>
                     </button>
 
-                    <button  className='hover:scale-110'>
+                    <button className='hover:scale-110'>
                         <a href="mailto:jimmyfisher@gmail.co" className="" rel="noopener noreferrer">
                             <MdEmail />
                         </a>
