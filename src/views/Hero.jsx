@@ -27,10 +27,10 @@ const Hero = () => {
                     <img src="/logo.webp" alt="Logo" className="w-20 m-5" />
 
 
-                    <button className="flex md:w-[14rem] w-[12rem] relative h-[2.7rem] group m-5 pointer-events-auto">
+                    <button className="flex 2xl:w-[18rem] 2xl:h-[3.5rem] md:w-[14rem] w-[12rem] relative h-[2.7rem] group m-5 pointer-events-auto">
                         <img src="/side.webp" alt="side" className="h-full" />
                         <div className="w-full h-full border-t-[1px] boder-white border-b-[1px] flex items-center justify-center font-copper group-hover:bg-white/30 group-hover:font-bold transition-bg ease-in-out duration-100">
-                            <h2 className="text-sm">BUY TOKEN</h2>
+                            <h2 className="text-sm 2xl:text-xl">BUY TOKEN</h2>
                         </div>
                         <img src="/side.webp" alt="side" className="scale-x-[-1] h-full" />
                     </button>
@@ -55,14 +55,14 @@ const Hero = () => {
 
 
                     <motion.div initial={{ y: 150, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 3.5, delay: 1, ease: [0.16, 0.77, 0.47, .97] }} className="pointer-events-auto">
-                        <button className="flex md:w-[14rem] w-[12rem] relative h-[2.7rem] mx-auto mt-8 group" onClick={handleCopy}>
+                        <button className="flex 2xl:w-[18rem] 2xl:h-[3.5rem] md:w-[14rem] w-[12rem] relative h-[2.7rem] mx-auto mt-8 group " onClick={handleCopy}>
                             <img src="/side.webp" alt="side" className="h-full" />
-                            <div className="w-full h-full border-t-[1px] boder-white border-b-[1px] flex items-center justify-center font-copper group-hover:bg-white/30 group-hover:font-bold transition-bg ease-in-out duration-100">
+                            <div className="w-full h-full border-t-[1px] boder-white border-b-[1px] flex items-center justify-center font-copper group-hover:bg-white/30 group-hover:font-bold transition-bg ease-in-out duration-100 2xl:text-xl">
                                 <h2>Copy address</h2>
                             </div>
                             <img src="/side.webp" alt="side" className="scale-x-[-1] h-full" />
                         </button>
-                        <p className="font-copper text-sm mt-2">{contractAddress}</p>
+                        <p className="font-copper text-sm mt-2 2xl:text-xl">{contractAddress}</p>
                     </motion.div>
 
 
